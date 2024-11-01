@@ -1,0 +1,26 @@
+.nav-menu {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: #99a5b8;
+    transition: 0.5s ease;
+    display: none;
+    z-index: 400;
+}
+
+.nav-menu.active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #99a5b8;
+    transition: 2s ease;
+    display: block;
+}
+
+.active{
+    color: black;
+}
