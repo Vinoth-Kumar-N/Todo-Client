@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar';
 import AuthServices from '../../services/authServices';
-import {getErrMessage} from "../../utils/getErrorMessage"
 
 
 const Register = () => {
@@ -33,7 +32,7 @@ const Register = () => {
         }
       }).catch((err) => {
         console.log(err);
-        toast(getErrMessage(err), { type: "error" });
+        toast("Registration Failed", { type: "error" });
       });
   }
 
