@@ -19,8 +19,7 @@ const Login = () => {
       email: emailref.current.value,
       password: passwordref.current.value
     }
-    await AuthServices.loginUser(data)
-      .then((res) => {
+    await AuthServices.loginUser(data).then((res) => {
         toast('Login Successfully', { type: "success" })
         console.log(res.data);
         storeUserdata(res.data);

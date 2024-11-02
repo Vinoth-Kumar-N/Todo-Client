@@ -25,7 +25,7 @@ const Register = () => {
       .then((res) => {
         toast('Registered Successfully', { type: "success" })
         console.log(res);
-        if (res.data === "success") {
+        if (res.status === 201) {
           setTimeout(() => {
             navigate('/todolist');
           }, 2000);
