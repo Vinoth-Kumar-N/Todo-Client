@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar';
 import AuthServices from '../../services/authServices';
+import {getErrMessage} from "../../utils/getErrorMessage"
 
 
 const Register = () => {
@@ -30,7 +31,10 @@ const Register = () => {
             navigate('/todolist');
           }, 2000);
         }
-      }).catch(err => console.log(err));
+      }).catch((err) => {
+        console.log(err);
+        toast(getErrMessage(err), { type: "error" });
+      });
   }
 
 
