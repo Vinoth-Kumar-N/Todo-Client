@@ -30,8 +30,9 @@ const Login = () => {
         }
 
       }).catch((err) =>{
-        console.log(err);
-        toast(err, { type: "error" });
+        const mess = err.response.data.message
+        console.log(mess);
+        toast(mess, { type: "error" });
       }) 
   }
 
