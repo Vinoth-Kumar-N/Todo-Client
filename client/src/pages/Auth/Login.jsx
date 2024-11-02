@@ -29,7 +29,10 @@ const Login = () => {
           }, 2000);
         }
 
-      }).catch(err => console.log(err));
+      }).catch((err) =>{
+        console.log(err.response.data.message);
+        toast(err.response.data.message , { type: "error" });
+      }) 
   }
 
 
