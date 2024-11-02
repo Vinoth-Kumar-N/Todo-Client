@@ -31,7 +31,7 @@ const Register = () => {
           }, 2000);
         }
       }).catch((err) => {
-        console.log(err);
+        console.log(err.response.data.message);
         toast("Registration Failed", { type: "error" });
       });
   }
