@@ -32,7 +32,7 @@ const Register = () => {
         }
       }).catch((err) => {
         console.log(err.response.data.message);
-        toast("Registration Failed", { type: "error" });
+        toast(err.response.data.message , { type: "error" });
       });
   }
 
