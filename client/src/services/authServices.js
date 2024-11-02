@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {getUserdata, removeUserdata} from './storageServices'
 
-const API = process.env.VITE_API;
+const API = process.env.VITE_SERVER_API;
 
 const registerUser = (data) => {
     return axios.post(`${API}/register`, data);
