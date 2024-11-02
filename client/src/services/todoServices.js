@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getUserDetails from '../utils/getUserDetails';
 
-const API = process.env.VITE_SERVER_API;
+const API = "https://todo-server-3ahw.onrender.com/api";
 
 const authrHeader = () => {
     const userDetails = getUserDetails();
