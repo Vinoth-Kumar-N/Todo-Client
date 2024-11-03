@@ -34,7 +34,7 @@ const Navbar = () => {
         <>
             <nav className="fixed top-0 h-16 w-full md:w-full rigth-0 bg-[#99a5b8] flex justify-between items-center z-50">
                 <div className="ml-8">
-                    <h1 className="cursor-pointer font-extrabold text-2xl text-[#000] h-full rounded-sm flex justify-center items-center hover:text-[#7E60BF]">1StepAhead</h1>
+                    <Link to={'/'} ><h1 className="cursor-pointer font-extrabold text-2xl text-[#000] h-full rounded-sm flex justify-center items-center hover:text-[#7E60BF]">1StepAhead</h1></Link>
                 </div>
                 <div className="hidden absolute right-3 xl:mr-20 sm:flex">
                     <ul className="flex">
