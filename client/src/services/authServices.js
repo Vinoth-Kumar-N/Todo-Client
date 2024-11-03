@@ -2,6 +2,7 @@ import axios from 'axios';
 import {getUserdata, removeUserdata} from './storageServices'
 
 const API = "https://todo-server-3ahw.onrender.com/api";
+// const API = "http://localhost:3300/api";
 
 const registerUser = (data) => {
     return axios.post(`${API}/register`, data);
