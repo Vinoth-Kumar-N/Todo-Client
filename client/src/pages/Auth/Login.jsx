@@ -6,34 +6,36 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar';
 import AuthServices from '../../services/authServices';
 import { storeUserdata } from '../../services/storageServices';
+import { Spin } from 'antd';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [statusMess, setstatusMess] = useState(null);
   const emailref = useRef(null);
   const passwordref = useRef(null);
+  const [loading, setLoding] = useState(false);
 
   const handleSub = async (e) => {
     e.preventDefault();
+    setLoding(true);
     const data = {
       email: emailref.current.value,
       password: passwordref.current.value
     }
     await AuthServices.loginUser(data).then((res) => {
-        toast('Login Successfully', { type: "success" })
-        console.log(res.data);
-        storeUserdata(res.data);
-        if (res.status === 201) {
-          setTimeout(() => {
-            navigate('/todolist');
-          }, 2000);
-        }
+      toast('Login Successfully', { type: "success" })
+      console.log(res.data);
+      storeUserdata(res.data);
+      if (res.status === 201) {
+        setTimeout(() => {
+          navigate('/todolist');
+        }, 2000);
+      }
 
-      }).catch((err) =>{
-        const mess = err.response.data.message
-        console.log(mess);
-        toast(mess, { type: "error" });
-      }) 
+    }).catch((err) => {
+      const mess = err.response.data.message
+      console.log(mess);
+      toast(mess, { type: "error" });
+    }).finally(() => setLoding(false));
   }
 
 
@@ -52,12 +54,13 @@ const Login = () => {
           </div>
 
           <div className="w-full h-full flex flex-col justify-center items-center">
-            <form className="w-[80%] h-[90%] flex flex-col justify-center items-center gap-4" id="contact-form" onSubmit={handleSub}>
-              <input autoComplete='' type="email" id="emailf" ref={emailref} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" placeholder="Email" required />
-              <input autoComplete='' type="password" id="passwordf" ref={passwordref} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" placeholder="Password" required />
-              <button type="submit" className="text-white bg-slate-500 from-green-500 via-red-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none shadow-purple-100 font-medium rounded-sm text-md px-5 py-2.5 text-center w-full h-[15%] mt-4" >Login</button>
-            </form>
-            <div className="">{statusMess}</div>
+            {loading ? <Spin /> : (
+              <form className="w-[80%] h-[90%] flex flex-col justify-center items-center gap-4" id="contact-form" onSubmit={handleSub}>
+                <input autoComplete='' type="email" id="emailf" ref={emailref} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" placeholder="Email" required />
+                <input autoComplete='' type="password" id="passwordf" ref={passwordref} className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2  hover:border-b-2 hover:border-purple-200 focus:border-purple-600 mb-3" placeholder="Password" required />
+                <button type="submit" className="text-white bg-slate-500 from-green-500 via-red-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none shadow-purple-100 font-medium rounded-sm text-md px-5 py-2.5 text-center w-full h-[15%] mt-4" >Login</button>
+              </form>
+            )}
           </div>
         </div>
       </div>
