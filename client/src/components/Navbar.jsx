@@ -22,7 +22,7 @@ const Navbar = () => {
     const handleLogout = () => {
         AuthServices.logout();
         setLoggedout(true);
-        window.location.reload();
+        // window.location.reload();
         navigate('/');
     }
 
