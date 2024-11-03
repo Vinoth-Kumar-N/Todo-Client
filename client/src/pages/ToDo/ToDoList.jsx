@@ -189,7 +189,7 @@ const ToDoList = () => {
         AuthServices.isAuthenticated() ?
           <section className="w-[100vw] h-[100vh] flex-col justify-center items-center">
 
-            <div className="w-auto h-auto  mt-10 mx-10 pt-20 flex justify-between">
+            <div className="w-auto h-auto  mt-10 mx-10 pt-20 flex flex-wrap justify-between">
               <h2 className="text-2xl">Your Tasks</h2>
               <Input className=" h-12 w-[58rem]" onChange={handleSearch} placeholder="Search Your Task By Title Here..." />
               <div className="">
