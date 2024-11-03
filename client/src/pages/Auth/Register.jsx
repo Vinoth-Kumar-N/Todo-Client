@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../../components/Navbar';
 import AuthServices from '../../services/authServices';
 import { Spin } from 'antd';
-import { set } from 'mongoose';
 
 
 const Register = () => {

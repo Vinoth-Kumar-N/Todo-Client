@@ -3,6 +3,7 @@ import LandBg from '../assets/LandBg.png'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import {isAuthenticated} from '../services/authServices'
 
 const Landing = () => {
   return (
@@ -20,8 +21,9 @@ const Landing = () => {
             </p>
 
             <div className="flex gap-4 mt-8 w-full justify-center md:justify-start">
-              <Link to="/register">
+              <Link to="/todolist">
                 <button className="w-40 md:w-32 h-12 bg-blue-700 rounded-lg text-lg text-white hover:bg-blue-600 hover:shadow-xl">
+                  {isAuthenticated() ? 'Dashboard' : 'Register'}
                   Register
                 </button>
               </Link>
