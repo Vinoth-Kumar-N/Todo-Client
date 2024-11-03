@@ -11,7 +11,7 @@ import AuthServices from '../services/authServices.js';
 const Navbar = () => {
     const navigate = useNavigate();
     const [click, setclick] = useState(false);
-    const [loggedout, setLoggedout] = useState(false);
+    const [isLoggedout, setLoggedout] = useState(false);
 
     const NavLinks = [
         { title: "Home", path: '/' },
@@ -27,10 +27,11 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        const data = getUserdata();
-        console.log(data);
+        // const data = getUserdata();
+        // console.log(data);
         setLoggedout(!AuthServices.isAuthenticated());
-    }, [loggedout])
+        console.log(isLoggedout)
+    }, [isLoggedout])
 
     return (
         <>
