@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { CircleX, Waypoints } from 'lucide-react';
-import { Dropdown } from 'antd'
 import '../assets/css/Navbar.css';
-import { getUserdata, removeUserdata } from '../services/storageServices';
 import AuthServices from '../services/authServices.js';
 
 
